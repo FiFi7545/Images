@@ -1,0 +1,250 @@
+<style>
+  :root{
+    --or:#E8620A;--or2:#FBBF86;--or3:#FEF0E7;
+    --dk:#1C1C2E;--dk2:#2E2E45;
+    --ct:#F8EDD8;--ctb:#E8D5A8;
+    --bd:#D4773A;
+    --b-sci:#E1F5EE;--t-sci:#085041;
+    --b-eng:#EEEDFE;--t-eng:#3C3489;
+    --b-maths:#E6F1FB;--t-maths:#0C447C;
+    --b-lang:#FAECE7;--t-lang:#712B13;
+    --b-hum:#FAEEDA;--t-hum:#633806;
+    --b-art:#FBEAF0;--t-art:#72243E;
+    --b-tech:#F1EFE8;--t-tech:#444441;
+    --b-pe:#EAF3DE;--t-pe:#3B6D11;
+    --today-fill:rgba(232,98,10,0.10);
+    --today-hd:rgba(232,98,10,0.18);
+  }
+  @media(prefers-color-scheme:dark){
+    :root{
+      --ct:#2a2010;--ctb:#3a2e18;--bd:#E8620A;
+      --b-sci:#085041;--t-sci:#9FE1CB;
+      --b-eng:#26215C;--t-eng:#CECBF6;
+      --b-maths:#042C53;--t-maths:#B5D4F4;
+      --b-lang:#4A1B0C;--t-lang:#F5C4B3;
+      --b-hum:#412402;--t-hum:#FAC775;
+      --b-art:#4B1528;--t-art:#F4C0D1;
+      --b-tech:#2C2C2A;--t-tech:#D3D1C7;
+      --b-pe:#173404;--t-pe:#C0DD97;
+      --today-fill:rgba(232,98,10,0.18);
+      --today-hd:rgba(232,98,10,0.28);
+    }
+  }
+
+  .tt{font-family:var(--font-sans);padding:0;}
+
+  .masthead{
+    background:var(--dk);
+    border-radius:var(--border-radius-lg) var(--border-radius-lg) 0 0;
+    padding:12px 16px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .bball{
+    width:32px;height:32px;border-radius:50%;
+    background:var(--or);flex-shrink:0;position:relative;overflow:hidden;
+    border:2px solid var(--or2);
+  }
+  .bball::before{content:'';position:absolute;top:50%;left:0;right:0;height:1.5px;background:rgba(0,0,0,0.35);transform:translateY(-50%);}
+  .bball::after{content:'';position:absolute;left:50%;top:0;bottom:0;width:1.5px;background:rgba(0,0,0,0.35);transform:translateX(-50%);}
+  .mh-text{flex:1;}
+  .mh-title{font-size:13px;font-weight:500;color:#fff;letter-spacing:.06em;text-transform:uppercase;}
+  .mh-sub{font-size:11px;color:var(--or2);margin-top:1px;}
+  .mh-lines{display:flex;gap:3px;align-items:center;}
+  .mh-line{height:2px;background:var(--or);border-radius:1px;}
+
+  .body-wrap{background:var(--ct);border:1.5px solid var(--bd);border-top:none;border-radius:0 0 var(--border-radius-lg) var(--border-radius-lg);padding:14px 14px 10px;margin-bottom:0;}
+
+  .sec{margin-bottom:18px;}
+  .sec:last-of-type{margin-bottom:0;}
+
+  .jersey{
+    display:flex;align-items:center;gap:10px;
+    background:var(--dk2);border-radius:var(--border-radius-md);
+    padding:7px 12px;margin-bottom:10px;
+    border-left:3px solid var(--or);
+  }
+  .jnum{
+    font-size:18px;font-weight:500;color:var(--or);
+    line-height:1;min-width:20px;text-align:center;
+  }
+  .jname{font-size:13px;font-weight:500;color:#fff;}
+  .jmeta{font-size:11px;color:var(--or2);margin-top:1px;}
+
+  table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:11px;}
+  col.lbl{width:82px;}
+  th{
+    padding:5px 4px;text-align:center;font-size:11px;font-weight:500;
+    color:var(--dk);border:1px solid var(--bd);
+    background:var(--ctb);
+  }
+  @media(prefers-color-scheme:dark){th{color:#e8d5a8;}}
+  th.lh{text-align:left;font-weight:400;color:var(--bd);border:none;background:transparent;padding-left:0;}
+  th.tdy{background:var(--today-hd);}
+  td{padding:7px 4px;text-align:center;vertical-align:top;border:1px solid var(--bd);}
+  td.lc{text-align:left;padding-left:0;color:var(--bd);font-size:11px;border:none;border-top:1px solid var(--bd);}
+  tr:first-child td.lc{border-top:none;}
+  td.tdy{background:var(--today-fill);}
+  .tbadge{display:block;font-size:10px;font-weight:500;color:var(--or);margin-top:2px;}
+  .pill{display:inline-block;padding:3px 7px;border-radius:4px;font-size:11px;line-height:1.4;}
+  .sci{background:var(--b-sci);color:var(--t-sci);}
+  .eng{background:var(--b-eng);color:var(--t-eng);}
+  .ma{background:var(--b-maths);color:var(--t-maths);}
+  .ln{background:var(--b-lang);color:var(--t-lang);}
+  .hm{background:var(--b-hum);color:var(--t-hum);}
+  .ar{background:var(--b-art);color:var(--t-art);}
+  .tc{background:var(--b-tech);color:var(--t-tech);}
+  .pe{background:var(--b-pe);color:var(--t-pe);}
+  .empty{color:var(--bd);opacity:.5;}
+  .divider{height:1px;background:var(--bd);opacity:.35;margin:14px 0;}
+
+  .leg{
+    display:flex;flex-wrap:wrap;gap:5px;padding:10px 14px;
+    background:var(--dk);border-radius:0 0 var(--border-radius-md) var(--border-radius-md);
+    align-items:center;
+    border:1.5px solid var(--bd);border-top:none;
+    border-radius:0 0 var(--border-radius-lg) var(--border-radius-lg);
+  }
+  .leglbl{font-size:10px;color:var(--or2);margin-right:3px;}
+  .pill.sm{font-size:10px;padding:2px 6px;}
+</style>
+
+<h2 class="sr-only">Basketball-themed exam week timetable for Benaiah and Elijah, 15–19 June 2026</h2>
+
+<div class="tt">
+
+  <div class="masthead">
+    <div class="bball"></div>
+    <div class="mh-text">
+      <div class="mh-title">Exam week · 15–19 June 2026</div>
+      <div class="mh-sub">Tutor room exams · all week</div>
+    </div>
+    <div class="mh-lines">
+      <div class="mh-line" style="width:18px;"></div>
+      <div class="mh-line" style="width:10px;opacity:.6;"></div>
+      <div class="mh-line" style="width:5px;opacity:.3;"></div>
+    </div>
+  </div>
+
+  <div class="body-wrap">
+
+    <!-- BENAIAH -->
+    <div class="sec">
+      <div class="jersey">
+        <div>
+          <div class="jnum">#7</div>
+        </div>
+        <div>
+          <div class="jname">Benaiah</div>
+          <div class="jmeta">Year 7 · 7RBG · Room AS1</div>
+        </div>
+      </div>
+      <table>
+        <colgroup><col class="lbl"><col><col><col><col><col></colgroup>
+        <thead>
+          <tr>
+            <th class="lh"></th>
+            <th class="tdy">Mon 15<span class="tbadge">today</span></th>
+            <th>Tue 16</th>
+            <th>Wed 17</th>
+            <th>Thu 18</th>
+            <th>Fri 19</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="lc">Morning</td>
+            <td class="tdy"><span class="pill sci">Science</span></td>
+            <td><span class="pill hm">History</span></td>
+            <td><span class="pill ma">Maths P1</span></td>
+            <td><span class="pill ma">Maths P2</span></td>
+            <td><span class="pill ln">French / Spanish</span></td>
+          </tr>
+          <tr>
+            <td class="lc">Mid-morning</td>
+            <td class="tdy"><span class="pill tc">ICT</span></td>
+            <td><span class="pill pe">Interform / PE</span></td>
+            <td><span class="pill tc">Design &amp; Tech</span></td>
+            <td><span class="pill eng">English</span></td>
+            <td><span class="pill hm">Religious Studies</span></td>
+          </tr>
+          <tr>
+            <td class="lc">Afternoon</td>
+            <td class="tdy"><span class="pill ar">Drama</span></td>
+            <td><span class="pill pe">Interform / PE</span></td>
+            <td><span class="pill ar">Art</span></td>
+            <td><span class="pill pe">Wellbeing / early finish</span></td>
+            <td><span class="pill hm">Geography</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ELIJAH -->
+    <div class="sec">
+      <div class="jersey">
+        <div>
+          <div class="jnum">#10</div>
+        </div>
+        <div>
+          <div class="jname">Elijah</div>
+          <div class="jmeta">Year 10</div>
+        </div>
+      </div>
+      <table>
+        <colgroup><col class="lbl"><col><col><col><col><col></colgroup>
+        <thead>
+          <tr>
+            <th class="lh"></th>
+            <th class="tdy">Mon 15<span class="tbadge">today</span></th>
+            <th>Tue 16</th>
+            <th>Wed 17</th>
+            <th>Thu 18</th>
+            <th>Fri 19</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="lc">Morning</td>
+            <td class="tdy"><span class="pill eng">English Language</span></td>
+            <td><span class="pill sci">Biology</span></td>
+            <td><span class="pill sci">Physics</span></td>
+            <td><span class="pill eng">English Literature</span></td>
+            <td><span class="pill sci">Chemistry</span></td>
+          </tr>
+          <tr>
+            <td class="lc">Mid-morning</td>
+            <td class="tdy"><span class="empty">—</span></td>
+            <td><span class="empty">—</span></td>
+            <td><span class="empty">—</span></td>
+            <td><span class="empty">—</span></td>
+            <td><span class="empty">—</span></td>
+          </tr>
+          <tr>
+            <td class="lc">Afternoon</td>
+            <td class="tdy"><span class="pill ln">Spanish P1</span></td>
+            <td><span class="pill ar">Drama</span></td>
+            <td><span class="empty">—</span></td>
+            <td><span class="empty">—</span></td>
+            <td><span class="pill ln">Spanish P2</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="leg">
+    <span class="leglbl">Key</span>
+    <span class="pill sci sm">Science</span>
+    <span class="pill eng sm">English</span>
+    <span class="pill ma sm">Maths</span>
+    <span class="pill ln sm">Languages</span>
+    <span class="pill hm sm">Humanities</span>
+    <span class="pill ar sm">Creative</span>
+    <span class="pill tc sm">Tech</span>
+    <span class="pill pe sm">PE / Wellbeing</span>
+  </div>
+
+</div>
