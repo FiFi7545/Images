@@ -14,10 +14,11 @@
     --b-pe:#EAF3DE;--t-pe:#3B6D11;
     --today-fill:rgba(232,98,10,0.10);
     --today-hd:rgba(232,98,10,0.18);
+    --dur:#8a6a4a;
   }
   @media(prefers-color-scheme:dark){
     :root{
-      --ct:#2a2010;--ctb:#3a2e18;--bd:#E8620A;
+      --ct:#2a2010;--ctb:#3a2e18;--bd:#E8620A;--dur:#c9a87a;
       --b-sci:#085041;--t-sci:#9FE1CB;
       --b-eng:#26215C;--t-eng:#CECBF6;
       --b-maths:#042C53;--t-maths:#B5D4F4;
@@ -30,20 +31,9 @@
       --today-hd:rgba(232,98,10,0.28);
     }
   }
-
   .tt{font-family:var(--font-sans);padding:0;}
-
-  .masthead{
-    background:var(--dk);
-    border-radius:var(--border-radius-lg) var(--border-radius-lg) 0 0;
-    padding:12px 16px;
-    display:flex;align-items:center;gap:12px;
-  }
-  .bball{
-    width:32px;height:32px;border-radius:50%;
-    background:var(--or);flex-shrink:0;position:relative;overflow:hidden;
-    border:2px solid var(--or2);
-  }
+  .masthead{background:var(--dk);border-radius:var(--border-radius-lg) var(--border-radius-lg) 0 0;padding:12px 16px;display:flex;align-items:center;gap:12px;}
+  .bball{width:32px;height:32px;border-radius:50%;background:var(--or);flex-shrink:0;position:relative;overflow:hidden;border:2px solid var(--or2);}
   .bball::before{content:'';position:absolute;top:50%;left:0;right:0;height:1.5px;background:rgba(0,0,0,0.35);transform:translateY(-50%);}
   .bball::after{content:'';position:absolute;left:50%;top:0;bottom:0;width:1.5px;background:rgba(0,0,0,0.35);transform:translateX(-50%);}
   .mh-text{flex:1;}
@@ -51,32 +41,16 @@
   .mh-sub{font-size:11px;color:var(--or2);margin-top:1px;}
   .mh-lines{display:flex;gap:3px;align-items:center;}
   .mh-line{height:2px;background:var(--or);border-radius:1px;}
-
-  .body-wrap{background:var(--ct);border:1.5px solid var(--bd);border-top:none;border-radius:0 0 var(--border-radius-lg) var(--border-radius-lg);padding:14px 14px 10px;margin-bottom:0;}
-
+  .body-wrap{background:var(--ct);border:1.5px solid var(--bd);border-top:none;border-radius:0 0 var(--border-radius-lg) var(--border-radius-lg);padding:14px 14px 10px;}
   .sec{margin-bottom:18px;}
   .sec:last-of-type{margin-bottom:0;}
-
-  .jersey{
-    display:flex;align-items:center;gap:10px;
-    background:var(--dk2);border-radius:var(--border-radius-md);
-    padding:7px 12px;margin-bottom:10px;
-    border-left:3px solid var(--or);
-  }
-  .jnum{
-    font-size:18px;font-weight:500;color:var(--or);
-    line-height:1;min-width:20px;text-align:center;
-  }
+  .jersey{display:flex;align-items:center;gap:10px;background:var(--dk2);border-radius:var(--border-radius-md);padding:7px 12px;margin-bottom:10px;border-left:3px solid var(--or);}
+  .jnum{font-size:18px;font-weight:500;color:var(--or);line-height:1;min-width:20px;text-align:center;}
   .jname{font-size:13px;font-weight:500;color:#fff;}
   .jmeta{font-size:11px;color:var(--or2);margin-top:1px;}
-
   table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:11px;}
   col.lbl{width:82px;}
-  th{
-    padding:5px 4px;text-align:center;font-size:11px;font-weight:500;
-    color:var(--dk);border:1px solid var(--bd);
-    background:var(--ctb);
-  }
+  th{padding:5px 4px;text-align:center;font-size:11px;font-weight:500;color:var(--dk);border:1px solid var(--bd);background:var(--ctb);}
   @media(prefers-color-scheme:dark){th{color:#e8d5a8;}}
   th.lh{text-align:left;font-weight:400;color:var(--bd);border:none;background:transparent;padding-left:0;}
   th.tdy{background:var(--today-hd);}
@@ -85,7 +59,9 @@
   tr:first-child td.lc{border-top:none;}
   td.tdy{background:var(--today-fill);}
   .tbadge{display:block;font-size:10px;font-weight:500;color:var(--or);margin-top:2px;}
+  .cell-inner{display:flex;flex-direction:column;align-items:center;gap:3px;}
   .pill{display:inline-block;padding:3px 7px;border-radius:4px;font-size:11px;line-height:1.4;}
+  .dur{font-size:10px;color:var(--dur);line-height:1.2;}
   .sci{background:var(--b-sci);color:var(--t-sci);}
   .eng{background:var(--b-eng);color:var(--t-eng);}
   .ma{background:var(--b-maths);color:var(--t-maths);}
@@ -96,22 +72,14 @@
   .pe{background:var(--b-pe);color:var(--t-pe);}
   .empty{color:var(--bd);opacity:.5;}
   .divider{height:1px;background:var(--bd);opacity:.35;margin:14px 0;}
-
-  .leg{
-    display:flex;flex-wrap:wrap;gap:5px;padding:10px 14px;
-    background:var(--dk);border-radius:0 0 var(--border-radius-md) var(--border-radius-md);
-    align-items:center;
-    border:1.5px solid var(--bd);border-top:none;
-    border-radius:0 0 var(--border-radius-lg) var(--border-radius-lg);
-  }
+  .leg{display:flex;flex-wrap:wrap;gap:5px;padding:10px 14px;background:var(--dk);align-items:center;border:1.5px solid var(--bd);border-top:none;border-radius:0 0 var(--border-radius-lg) var(--border-radius-lg);}
   .leglbl{font-size:10px;color:var(--or2);margin-right:3px;}
   .pill.sm{font-size:10px;padding:2px 6px;}
 </style>
 
-<h2 class="sr-only">Basketball-themed exam week timetable for Benaiah and Elijah, 15–19 June 2026</h2>
+<h2 class="sr-only">Basketball-themed exam week timetable with durations for Benaiah and Elijah, 15–19 June 2026</h2>
 
 <div class="tt">
-
   <div class="masthead">
     <div class="bball"></div>
     <div class="mh-text">
@@ -130,13 +98,8 @@
     <!-- BENAIAH -->
     <div class="sec">
       <div class="jersey">
-        <div>
-          <div class="jnum">#7</div>
-        </div>
-        <div>
-          <div class="jname">Benaiah</div>
-          <div class="jmeta">Year 7 · 7RBG · Room AS1</div>
-        </div>
+        <div><div class="jnum">#7</div></div>
+        <div><div class="jname">Benaiah</div><div class="jmeta">Year 7 · 7RBG · Room AS1</div></div>
       </div>
       <table>
         <colgroup><col class="lbl"><col><col><col><col><col></colgroup>
@@ -153,27 +116,27 @@
         <tbody>
           <tr>
             <td class="lc">Morning</td>
-            <td class="tdy"><span class="pill sci">Science</span></td>
-            <td><span class="pill hm">History</span></td>
-            <td><span class="pill ma">Maths P1</span></td>
-            <td><span class="pill ma">Maths P2</span></td>
-            <td><span class="pill ln">French / Spanish</span></td>
+            <td class="tdy"><div class="cell-inner"><span class="pill sci">Science</span><span class="dur">1 hr</span></div></td>
+            <td><div class="cell-inner"><span class="pill hm">History</span><span class="dur">1 hr 15 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill ma">Maths P1</span><span class="dur">1 hr 30 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill ma">Maths P2</span><span class="dur">1 hr 30 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill ln">French / Spanish</span><span class="dur">45 mins</span></div></td>
           </tr>
           <tr>
             <td class="lc">Mid-morning</td>
-            <td class="tdy"><span class="pill tc">ICT</span></td>
-            <td><span class="pill pe">Interform / PE</span></td>
-            <td><span class="pill tc">Design &amp; Tech</span></td>
-            <td><span class="pill eng">English</span></td>
-            <td><span class="pill hm">Religious Studies</span></td>
+            <td class="tdy"><div class="cell-inner"><span class="pill tc">ICT</span><span class="dur">1 hr 15 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill pe">Interform / PE</span></div></td>
+            <td><div class="cell-inner"><span class="pill tc">Design &amp; Tech</span><span class="dur">1 hr 15 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill eng">English</span><span class="dur">1 hr 20 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill hm">Religious Studies</span><span class="dur">1 hr</span></div></td>
           </tr>
           <tr>
             <td class="lc">Afternoon</td>
-            <td class="tdy"><span class="pill ar">Drama</span></td>
-            <td><span class="pill pe">Interform / PE</span></td>
-            <td><span class="pill ar">Art</span></td>
-            <td><span class="pill pe">Wellbeing / early finish</span></td>
-            <td><span class="pill hm">Geography</span></td>
+            <td class="tdy"><div class="cell-inner"><span class="pill ar">Drama</span><span class="dur">1 hr 20 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill pe">Interform / PE</span></div></td>
+            <td><div class="cell-inner"><span class="pill ar">Art</span><span class="dur">1 hr 15 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill pe">Wellbeing / early finish</span></div></td>
+            <td><div class="cell-inner"><span class="pill hm">Geography</span><span class="dur">1 hr</span></div></td>
           </tr>
         </tbody>
       </table>
@@ -184,13 +147,8 @@
     <!-- ELIJAH -->
     <div class="sec">
       <div class="jersey">
-        <div>
-          <div class="jnum">#10</div>
-        </div>
-        <div>
-          <div class="jname">Elijah</div>
-          <div class="jmeta">Year 10</div>
-        </div>
+        <div><div class="jnum">#10</div></div>
+        <div><div class="jname">Elijah</div><div class="jmeta">Year 10</div></div>
       </div>
       <table>
         <colgroup><col class="lbl"><col><col><col><col><col></colgroup>
@@ -207,11 +165,11 @@
         <tbody>
           <tr>
             <td class="lc">Morning</td>
-            <td class="tdy"><span class="pill eng">English Language</span></td>
-            <td><span class="pill sci">Biology</span></td>
-            <td><span class="pill sci">Physics</span></td>
-            <td><span class="pill eng">English Literature</span></td>
-            <td><span class="pill sci">Chemistry</span></td>
+            <td class="tdy"><div class="cell-inner"><span class="pill eng">English Language</span><span class="dur">1 hr 45 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill sci">Biology</span><span class="dur">1 hr 30 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill sci">Physics</span><span class="dur">1 hr 30 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill eng">English Literature</span><span class="dur">1 hr 45 mins</span></div></td>
+            <td><div class="cell-inner"><span class="pill sci">Chemistry</span><span class="dur">1 hr 30 mins</span></div></td>
           </tr>
           <tr>
             <td class="lc">Mid-morning</td>
@@ -223,11 +181,11 @@
           </tr>
           <tr>
             <td class="lc">Afternoon</td>
-            <td class="tdy"><span class="pill ln">Spanish P1</span></td>
-            <td><span class="pill ar">Drama</span></td>
+            <td class="tdy"><div class="cell-inner"><span class="pill ln">Spanish P1</span><span class="dur">45 mins – 1 hr</span></div></td>
+            <td><div class="cell-inner"><span class="pill ar">Drama</span><span class="dur">1 hr 30 mins</span></div></td>
             <td><span class="empty">—</span></td>
             <td><span class="empty">—</span></td>
-            <td><span class="pill ln">Spanish P2</span></td>
+            <td><div class="cell-inner"><span class="pill ln">Spanish P2</span><span class="dur">1 hr 10 – 1 hr 15 mins</span></div></td>
           </tr>
         </tbody>
       </table>
@@ -246,5 +204,4 @@
     <span class="pill tc sm">Tech</span>
     <span class="pill pe sm">PE / Wellbeing</span>
   </div>
-
 </div>
